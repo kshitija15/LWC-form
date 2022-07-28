@@ -1,0 +1,11 @@
+lightning-card{
+    --sds-c-card-color-background: #aadae9d8;
+    --sds-c-card-color-border: #aadae9d8;
+    --sds-c-button-brand-color-background: purple;
+    --sds-c-card-heading-font-size: 10px;
+    --sds-c-card-body-spacing-inline-start: 200px;
+   --sds-c-card-border: 3px solid green;
+
+}
+.new{
+}

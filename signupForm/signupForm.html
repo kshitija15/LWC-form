@@ -1,0 +1,91 @@
+<template>
+    <template if:true={personal}>
+    <lightning-card title="Personal Details"   >
+        <!-- <div class="slds-align_absolute-center"> -->
+
+
+        <lightning-layout>
+            <lightning-layout-item size="10">
+                <lightning-input class="slds-p-around_medium common" label="First Name " type="text" name="fname" placeholder="Enter first Name "
+                    onchange={changeHandler}></lightning-input>
+                <lightning-input class="slds-p-around_medium common" label="Last Name" type="text" name="lname" placeholder="Enter last Name "
+                    onchange={changeHandler} required></lightning-input>
+                <lightning-input class="slds-p-around_medium common" label="Phone" type="phone" name="phone" placeholder="Enter Phone Number  "
+                    onchange={changeHandler}></lightning-input>
+                <template if:true={typeValues.data}>
+                    <div class="slds-m-around_medium common">
+                        <lightning-combobox name="gender" label="Gender" value={selectedGender}
+                            placeholder="Select Gender" options={typeValues.data.values} onchange={changeHandler}>
+                        </lightning-combobox>
+                    </div>
+                </template>
+                <br />
+                <lightning-button class="slds-m-left_x-small" label="Next" variant="brand" onclick={next}>
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+<!-- </div> -->
+    </lightning-card>
+
+    </template>
+
+    <template if:true={user}>
+
+    <lightning-card title="User Details" >
+
+        <lightning-layout>
+            
+            <lightning-layout-item size="10">
+                <lightning-input class="slds-p-around_medium common" label="Username" type="text" name="uname" placeholder="Enter UserName "
+                    onchange={changeHandler} required></lightning-input>
+                <lightning-input class="slds-p-around_medium common" label="Email" type="email" name="email" placeholder="Enter a  Email "
+                    onchange={changeHandler} required></lightning-input>
+                <lightning-input class="slds-p-around_medium common" label="Company" type="text" name="company" placeholder="Enter Company Name "
+                    onchange={changeHandler} required></lightning-input>
+                <template if:true={typeValues1.data}>
+                    <div class="slds-m-around_medium common">
+                        <lightning-combobox name="qualification" label="Highest Education Qualification"
+                            value={selectedQualification} placeholder="Select Qualification"
+                            options={typeValues1.data.values} onchange={changeHandler}>
+                        </lightning-combobox>
+                    </div>
+                </template>
+                <br />
+                <lightning-button class="slds-m-left_x-small" label="Previous" variant="brand" onclick={prev}>
+                </lightning-button>
+                <lightning-button class="slds-m-left_x-small" label="Next" variant="brand" onclick={next1}>
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+
+
+    </template>
+    <template if:true={security}>
+    <lightning-card title="Security Details">
+
+        <lightning-layout>
+            <lightning-layout-item size="10">
+                <lightning-input class="slds-p-around_medium common" label="Password" type="password" name="pass" placeholder="Enter a password "
+                    onchange={changeHandler} required></lightning-input>
+                <lightning-input class="slds-p-around_medium common" label="Confirm Password" type="password" placeholder="Confirm your password "
+                    name="cpass" onchange={changeHandler} required></lightning-input>
+                <lightning-input class="slds-p-around_medium common" label="In which city you were born ?" placeholder="Answer"
+                    type="text" name="question" onchange={questionChangedHandler} required></lightning-input>
+                   <!-- <template if:true={recaptcha}>
+                        <iframe src={navigateTo} name="captchaFrame" onload={captchaLoaded} style="width: -webkit-fill-available;"></iframe>
+                   </template> -->
+                    <iframe src={navigateTo} name="captchaFrame" onload={captchaLoaded} style="width: -webkit-fill-available;"></iframe>
+                    <br />
+                <lightning-button class="slds-m-left_x-small" label="Previous" variant="brand" onclick={prev1}>
+                </lightning-button>
+                <lightning-button class="slds-m-left_x-small" label="Cancel" variant="brand" onclick={cancel}>
+                </lightning-button>
+                <lightning-button class="slds-m-left_x-small" label="Signup" variant="brand" onclick={signup}>
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+
+    </lightning-card>
+    </template>
+    </template>
